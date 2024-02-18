@@ -29,7 +29,8 @@ public class AgeRestrictionTest {
     @TestFactory
     public Stream<DynamicTest> testDynamicInvalidAge() {
         //TODO: Implement Dynamic Assertions test given dynamic invalid inputs
-        return null;
+        return IntStream.iterate(1, number -> number + 1).limit(17)
+                .mapToObj(number -> dynamicTest("Checking" + number, () -> assertEquals(number, number)));
     }
 
     @ParameterizedTest
