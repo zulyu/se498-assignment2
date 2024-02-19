@@ -17,11 +17,9 @@ public class AgeRestrictionException extends Exception {
     }
 
     public String getReason() {
-
         return null;
     }
 
     public void setReason(String reason) {
-
     }
 }
