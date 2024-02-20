@@ -7,14 +7,16 @@ import java.util.Date;
 public class ConversionCommand implements Command {
 
     //TODO: Implement method(s) for the command execution
-    private final ConversionStrategy strategy = null;
-    private final String date = null;
+    private final ConversionStrategy strategy;
+    private final String date;
 
     public ConversionCommand(ConversionStrategy strategy, String date) {
+        this.strategy = strategy;
+        this.date = date;
     }
 
     @Override
     public Date execute() throws ParseException {
-        return null;
+        return strategy.convert(date);
     }
 }

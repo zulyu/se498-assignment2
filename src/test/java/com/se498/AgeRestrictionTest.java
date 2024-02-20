@@ -2,14 +2,8 @@ package com.se498;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoSession;
-import org.mockito.quality.Strictness;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
@@ -19,14 +13,13 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
-import static org.mockito.Mockito.*;
 
 public class AgeRestrictionTest {
 
 
     @Test
-    public void testAgeRestrictionException(){
-        //TODO: Implement Throws Assertion test given invalid age
+    public void testConversionStrategyException(){
+        //TODO: Implement Throws Assertion test given unknown locale for Conversion Strategy
     }
 
     @TestFactory
@@ -62,7 +55,7 @@ public class AgeRestrictionTest {
         ConversionStrategy strategy = null;
         try {
             strategy = ConversionStrategyFactory.getInstance().getStrategy(dummyParticipant.getLocale());
-        } catch (AgeRestrictionException e) {
+        } catch (ConversionStrategyException e) {
             throw new RuntimeException(e);
         }
 
