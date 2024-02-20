@@ -53,16 +53,20 @@ public class AgeRestrictionTest {
     }
 
     @Test
-    public void testAgeCheck() {
+    public void testBaseConversion() {
+
+        Participant dummyParticipant = new Participant();
+        dummyParticipant.setLocale("EU");
+        dummyParticipant.setDateOfBirth("20022007");
 
         ConversionStrategy strategy = null;
         try {
-            strategy = ConversionStrategyFactory.getInstance().getStrategy("EU");
+            strategy = ConversionStrategyFactory.getInstance().getStrategy(dummyParticipant.getLocale());
         } catch (AgeRestrictionException e) {
             throw new RuntimeException(e);
         }
 
-        Command command = new ConversionCommand(strategy, "20022007");
+        Command command = new ConversionCommand(strategy, dummyParticipant.getDateOfBirth());
 
         try {
             Date birthDate = (Date) command.execute();
