@@ -1,5 +1,8 @@
 package com.se498;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public interface Command {
-    //TODO: Define signature(s) for the command execution
+    public Object execute() throws ParseException;
 }

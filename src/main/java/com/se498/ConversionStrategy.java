@@ -1,5 +1,10 @@
 package com.se498;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public interface ConversionStrategy {
-    //TODO: Define signature(s) for the time and date conversion strategy
+
+    public Date convert(String date) throws ParseException;
 }

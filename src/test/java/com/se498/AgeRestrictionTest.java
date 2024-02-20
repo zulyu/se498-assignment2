@@ -10,6 +10,9 @@ import org.mockito.MockitoSession;
 import org.mockito.quality.Strictness;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -39,7 +42,6 @@ public class AgeRestrictionTest {
         //TODO: Implement Parametrized Assertions test given four valid inputs
     }
 
-
     @Test
     public void testUSDateConversion(){
         //TODO: Implement Spy test verifying US date format conversion
@@ -48,5 +50,33 @@ public class AgeRestrictionTest {
     @Test
     public void testEUDateConversion(){
         //TODO: Implement Stub test verifying EU date format conversion
+    }
+
+    @Test
+    public void testAgeCheck() {
+
+        ConversionStrategy strategy = null;
+        try {
+            strategy = ConversionStrategyFactory.getInstance().getStrategy("EU");
+        } catch (AgeRestrictionException e) {
+            throw new RuntimeException(e);
+        }
+
+        Command command = new ConversionCommand(strategy, "20022007");
+
+        try {
+            Date birthDate = (Date) command.execute();
+
+            BusinessRuleService ruleService = new BusinessRuleService();
+
+            Period yearsBetween = Period.between(birthDate.toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate(), LocalDate.now());
+
+            assertFalse(ruleService.applyBusinessRule(new AgeRestrictionBusinessRule(), yearsBetween.getYears()));
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
