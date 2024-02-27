@@ -42,7 +42,7 @@ public class AgeRestrictionTest {
 
     @Test
     public void testEUDateConversion(){
-        //TODO: Implement Stub test verifying EU date format conversion
+        //TODO: Implement Mock test verifying EU date format conversion
     }
 
     @Test
