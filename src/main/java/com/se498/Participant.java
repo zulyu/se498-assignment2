@@ -6,4 +6,19 @@ public class Participant {
     String dateOfBirth;
     String locale;
 
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public String getLocale() {
+        return locale;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
 }

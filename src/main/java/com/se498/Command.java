@@ -4,5 +4,5 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public interface Command {
-    public Object execute() throws ParseException;
+    public Object execute() throws Exception;
 }

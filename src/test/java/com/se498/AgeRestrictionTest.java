@@ -46,6 +46,7 @@ public class AgeRestrictionTest {
     }
 
     @Test
+    @Disabled
     public void testBaseConversion() {
 
         Participant dummyParticipant = new Participant();

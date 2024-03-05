@@ -9,7 +9,7 @@ public class ConversionStrategyFactory {
     public static ConversionStrategyFactory getInstance() {
         return null;
     }
-    public ConversionStrategy getStrategy(String locale) throws AgeRestrictionException {
+    public ConversionStrategy getStrategy(String locale) throws ConversionStrategyException {
         return null;
     }
 }
