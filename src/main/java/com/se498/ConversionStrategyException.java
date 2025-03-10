@@ -2,11 +2,11 @@ package com.se498;
 
 public class ConversionStrategyException extends Exception {
 
-    //TODO: Implement method(s) for unknown conversion strategy exception
     private final String locale;
     private final String reason;
 
     public ConversionStrategyException (String locale, String reason) {
+        super("Conversion Strategy does not exist " + locale + ": " + reason);
         this.locale = locale;
         this.reason = reason;
     }
